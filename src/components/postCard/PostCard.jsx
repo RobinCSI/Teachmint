@@ -4,8 +4,8 @@ import Modal from "../modal/Modal";
 import { ModalContext } from "../../context/modalContext";
 
 function PostCard({ title, content, setSelectedPost }) {
-  const { isOpen, setIsOpen } = useContext(ModalContext);
-  // console.log("Post Card component");
+  const [isOpen, setIsOpen] = useContext(ModalContext);
+  console.log("Post Card component");
 
   function modalPrint() {
     console.log("Modal");
@@ -18,7 +18,7 @@ function PostCard({ title, content, setSelectedPost }) {
         border: "1px solid black",
         borderRadius: "1em",
         padding: "0.5em",
-        margin: "3em 10em",
+        margin: "3em 8em",
         maxWidth: "10vw",
         maxHeight: "20vh",
         overflow: "clip",

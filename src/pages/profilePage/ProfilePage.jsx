@@ -8,80 +8,54 @@ import { PostsContext } from "../../context/postsContext";
 import PostCard from "../../components/postCard/PostCard";
 import Modal from "../../components/modal/Modal";
 import ModalBox from "../../components/modal/ModalBox";
+import { ModalContext } from "../../context/modalContext";
+import Header from "./Header";
+
 function ProfilePage() {
   const navigate = useNavigate();
   const { id } = useParams();
+  console.log("Profile page component", id);
 
   // console.log("id", typeof(id)); //String
   const userList = useContext(UserContext);
-  // console.log(userList);
   // console.log(typeof(userList[0].id)) //Number
+  // console.log(userList)
   const postsList = useContext(PostsContext);
   const [user] = userList?.filter((user) => user.id == id);
   // console.log(user);
-  const { name, address, username, company, email, phone } = user;
   const posts = postsList.filter((post) => post.userId == id);
 
-  const [selectedPost, setSelectedPost]=useState({})
+  const [selectedPost, setSelectedPost] = useState({});
 
   function handleBackClick() {
     navigate("/");
   }
   return (
-    <div>
-      <div style={{ display: "flex" }}>
-        <button onClick={handleBackClick}>Back</button>
+    <>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <button
+          style={{ margin: "0.5em 1em", fontSize: "1em" }}
+          onClick={handleBackClick}
+        >
+          Back
+        </button>
         <CountryDropdown />
         {/* <Clock/> */}
       </div>
-      <h1 style={{ textAlign: "center" }}>Profile Page</h1>
-      <div
-        style={{
-          border: "1px solid black",
-          borderRadius: "0.5em",
-          // padding: "1em 1em",
-          margin: "1em",
-          // backgroundColor: "lightblue",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            fontSize: "1.2em",
-            margin: "0px 1em",
-            // border: "1px solid black"
-          }}
-        >
-          <h3>{name}</h3>
-          <p>
-            {address.suite}, {address.street}, {address.city}, {address.zipcode}
-          </p>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            margin: "0px 1em",
-            fontSize: "1.2em",
-            // border: "1px solid black"
-          }}
-        >
-          <p>
-            {username} | {company.catchPhrase}
-          </p>
-          <p>
-            {email} | {phone}
-          </p>
-        </div>
-      </div>
+      <Header user={user} />
       <ModalBox>
         <div
           style={{
             display: "flex",
             justifyContent: "space-around",
             flexWrap: "wrap",
-            border:"1px solid black"
+            // border:"1px solid red"
           }}
         >
           {posts.map((post) => (
@@ -95,11 +69,14 @@ function ProfilePage() {
             />
           ))}
           {/* <ModalBox /> */}
-          <Modal selectedPost={selectedPost}/>
+          <Modal
+            selectedPost={selectedPost}
+            setSelectedPost={setSelectedPost}
+          />
           {/* {isOpen && <Modal isOpen={isOpen} setIsOpen={setIsOpen} />} */}
         </div>
       </ModalBox>
-    </div>
+    </>
   );
 }
 

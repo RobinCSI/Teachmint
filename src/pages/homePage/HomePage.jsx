@@ -15,7 +15,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <h2>Directory</h2>
+      <h2 style={{textAlign:"center"}}>Directory</h2>
       {userList?.map((user, index) => (
         <UserCard
           key={user.id}

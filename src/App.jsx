@@ -14,6 +14,7 @@ import { ModalContext } from "./context/modalContext";
 // }
 
 function App() {
+  // console.log("App runs")
   const [userData, setUserData] = useState([]);
   const [postsData, setPostsData] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -30,6 +31,8 @@ function App() {
   ]);
 
   useEffect(() => {
+  // console.log("useEffect runs");
+
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
       .then((jsonData) => setUserData(jsonData));
@@ -43,9 +46,9 @@ function App() {
     <div>
       <UserContext.Provider value={userData}>
         <PostsContext.Provider value={postsData}>
-          <ModalContext.Provider value={[isOpen, setIsOpen]}>
+          {/* <ModalContext.Provider value={[isOpen, setIsOpen]}> */}
             <RouterProvider router={router} />
-          </ModalContext.Provider>
+          {/* </ModalContext.Provider> */}
         </PostsContext.Provider>
       </UserContext.Provider>
     </div>

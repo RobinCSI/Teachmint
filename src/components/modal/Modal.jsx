@@ -5,7 +5,7 @@ import { ModalContext } from "../../context/modalContext";
 function Modal({selectedPost}) {
     const {title, content}=selectedPost
   // console.log("Modal component");
-  const {isOpen, setIsOpen}=useContext(ModalContext)
+  const [isOpen, setIsOpen]=useContext(ModalContext)
   // console.log("Modal", isOpen);
   if(!isOpen) return null
 
@@ -22,6 +22,7 @@ function Modal({selectedPost}) {
                 onClick={() => {
                   console.log("Close button");
                   setIsOpen(false);
+                  console.log(selectedPost);
                 }}
                 style={{ marginBottom: "-3px" }}
                 className={styles.closeBtn}
