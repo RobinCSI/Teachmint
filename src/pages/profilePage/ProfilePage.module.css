@@ -1,0 +1,29 @@
+.MainContent{
+    display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            /* border: 1px solid red; */
+            height: auto;
+}
+
+.header{
+    display: flex;
+          justify-content: space-between;
+          align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .MainContent{
+        /* display: inline; */
+                /* justify-content: space-around; */
+                /* flex-wrap: wrap; */
+    }
+    
+    .header{
+        display: flex;
+        flex-direction: column;
+              /* justify-content: space-between; */
+              /* align-items: center; */
+    }
+}
+

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Clock from "../clock/clock";
+import styles from './CountryDropdown.module.css'
 
 function CountryDropdown() {
   const [countries, setCountries] = useState([]);
@@ -11,12 +12,11 @@ function CountryDropdown() {
   }, []);
   // console.log(selectedCountry)
   return (
-    <>
-      <div>
+      <div className={styles.dropdownClock}>
         <select
           value={selectedCountry}
           onChange={(e) => setSelectedCountry(e.target.value)}
-          style={{margin:"0.5em 1em", fontSize:"1em"}}
+          className={styles.CountryDropdown}
         >
           <option value="Select">Select your country</option>
           {countries.map((country, index) => (
@@ -27,7 +27,7 @@ function CountryDropdown() {
         </select>
       <Clock data={selectedCountry} />
       </div>
-    </>
+   
   );
 }
 

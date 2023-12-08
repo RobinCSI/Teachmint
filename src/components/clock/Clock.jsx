@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import styles from './Clock.module.css'
 
 function Clock({ data }) {
   const [time, setTime] = useState();
@@ -85,14 +86,14 @@ function Clock({ data }) {
     <>
       {/* <div>{time.substr(time.indexOf("T") + 1, 8)}</div> */}
       {time != null ? (
-        <span style={{ margin: "0.5em 1em", fontSize: "1.5em" }}>
+        <span className={styles.clock}>
           {time?.getHours()}:{time?.getMinutes()}:{time?.getSeconds()}
         </span>
       ) : (
-        <span style={{ margin: "0.5em 1em", fontSize: "1.5em" }}>00:00:00</span>
+        <span className={styles.clock}>00:00:00</span>
       )}
       <button
-        style={{ margin: "0.5em 1em", fontSize: "1em" }}
+        className={styles.btn}
         onClick={modifyTime}
       >
         Pause/Start

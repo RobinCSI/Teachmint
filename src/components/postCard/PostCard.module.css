@@ -1,3 +1,14 @@
+.PostCard{
+    border: 1px solid black;
+        border-radius: 1em;
+        padding: 0.5em;
+        margin: 3em 10vw;
+        max-width: 10vw;
+        max-height: 20vh;
+        overflow: clip;
+        cursor: pointer;
+}
+
 .primaryBtn {
     margin: 20px 10px;
     cursor: pointer;
@@ -14,4 +25,19 @@
 .primaryBtn:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px -10px rgba(24, 90, 219, 0.6);
+}
+
+@media only screen and (max-width: 768px) {
+    .PostCard{
+            border: 1px solid black;
+            border-radius: 1em;
+            padding: 0.5em;
+            margin: 3em 30vw;
+            min-width: 40vw;
+            max-height: 20vh;
+            overflow: clip;
+        cursor: pointer;
+
+    }
+
 }

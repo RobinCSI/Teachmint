@@ -11,13 +11,12 @@ function Modal({selectedPost}) {
 
   return (
     <>
-      <div className={styles.darkBG} onClick={() => setIsOpen(false)}>
-        <div className={styles.centered}>
+      <div className={styles.background} onClick={() => setIsOpen(false)}/>
+        {/* <div className={styles.centered}> */}
           <div className={styles.modal}>
             <div className={styles.modalHeader}>
-              <h5 className={styles.heading}>{title}</h5>
+              <h3 className={styles.heading}>{title}</h3>
             </div>
-            {/* <button> */}
               <span
                 onClick={() => {
                   console.log("Close button");
@@ -26,17 +25,16 @@ function Modal({selectedPost}) {
                 }}
                 style={{ marginBottom: "-3px" }}
                 className={styles.closeBtn}
-              >
+                >
                 ❌
               </span>
-            {/* </button> */}
             <div className={styles.modalContent}>
                 {content}
             </div>
           </div>
-        </div>
-      </div>
-    </>
+        {/* </div> */}
+      {/* </div> */}
+  </>
   );
 }
 

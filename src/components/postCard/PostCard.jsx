@@ -13,16 +13,7 @@ function PostCard({ title, content, setSelectedPost }) {
     return true;
   }
   return (
-    <div
-      style={{
-        border: "1px solid black",
-        borderRadius: "1em",
-        padding: "0.5em",
-        margin: "3em 8em",
-        maxWidth: "10vw",
-        maxHeight: "20vh",
-        overflow: "clip",
-      }}
+    <div className={styles.PostCard}
       onClick={() => {
         setIsOpen(true);
         setSelectedPost({title: title, content:content});

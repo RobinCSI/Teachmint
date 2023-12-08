@@ -8,8 +8,10 @@ import { PostsContext } from "../../context/postsContext";
 import PostCard from "../../components/postCard/PostCard";
 import Modal from "../../components/modal/Modal";
 import ModalBox from "../../components/modal/ModalBox";
-import { ModalContext } from "../../context/modalContext";
-import Header from "./Header";
+// import { ModalContext } from "../../context/modalContext";
+import UserDetails from "./UserDetails";
+
+import styles from './ProfilePage.module.css'
 
 function ProfilePage() {
   const navigate = useNavigate();
@@ -32,15 +34,9 @@ function ProfilePage() {
   }
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
+      <div className={styles.header} >
         <button
-          style={{ margin: "0.5em 1em", fontSize: "1em" }}
+          style={{ margin: "0.5em 1em", fontSize: "1em", backgroundColor:"lightblue", borderRadius: "0.5em", padding: "0.5em" }}
           onClick={handleBackClick}
         >
           Back
@@ -48,16 +44,9 @@ function ProfilePage() {
         <CountryDropdown />
         {/* <Clock/> */}
       </div>
-      <Header user={user} />
+      <UserDetails user={user} />
+        <div className={styles.MainContent}>
       <ModalBox>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-around",
-            flexWrap: "wrap",
-            // border:"1px solid red"
-          }}
-        >
           {posts.map((post) => (
             <PostCard
               key={post.id}
@@ -74,8 +63,8 @@ function ProfilePage() {
             setSelectedPost={setSelectedPost}
           />
           {/* {isOpen && <Modal isOpen={isOpen} setIsOpen={setIsOpen} />} */}
-        </div>
       </ModalBox>
+        </div>
     </>
   );
 }

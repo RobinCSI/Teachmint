@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header({user}) {
+function UserDetails({user}) {
       const { name, address, username, company, email, phone } = user;
 
 
@@ -26,7 +26,7 @@ function Header({user}) {
           }}
         >
           <h3>{name}</h3>
-          <p>
+          <p style={{marginLeft:"1em"}}>
             {address.suite}, {address.street}, {address.city}, {address.zipcode}
           </p>
         </div>
@@ -42,7 +42,7 @@ function Header({user}) {
           <p>
             {username} | {company.catchPhrase}
           </p>
-          <p>
+          <p style={{marginLeft:"1em"}}>
             {email} | {phone}
           </p>
         </div>
@@ -51,4 +51,4 @@ function Header({user}) {
   );
 }
 
-export default Header;
+export default UserDetails;
