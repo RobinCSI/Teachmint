@@ -16,7 +16,7 @@ import styles from './ProfilePage.module.css'
 function ProfilePage() {
   const navigate = useNavigate();
   const { id } = useParams();
-  console.log("Profile page component", id);
+  // console.log("Profile page component", id);
 
   // console.log("id", typeof(id)); //String
   const userList = useContext(UserContext);

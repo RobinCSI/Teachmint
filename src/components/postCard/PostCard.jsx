@@ -5,7 +5,7 @@ import { ModalContext } from "../../context/modalContext";
 
 function PostCard({ title, content, setSelectedPost }) {
   const [isOpen, setIsOpen] = useContext(ModalContext);
-  console.log("Post Card component");
+  // console.log("Post Card component");
 
   function modalPrint() {
     console.log("Modal");

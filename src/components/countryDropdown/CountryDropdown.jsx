@@ -3,6 +3,7 @@ import Clock from "../clock/clock";
 import styles from './CountryDropdown.module.css'
 
 function CountryDropdown() {
+  console.log("CountryDropdown component");
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("");
   useEffect(() => {

@@ -27,13 +27,16 @@ function Clock({ data }) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data.datetime, "data");
-        const date = new Date(data.datetime);
-        console.log(date);
-        setTime(date);
+        // const date = new Date(data.datetime);
+        // console.log(date);
+        setTime(data.datetime);
       });
+      console.log("fetch time ends");
+
   };
 
   function ticktock(time) {
+    console.log("ticktock function")
     //--------------------
     // if (time != "") {
     //   const milliseconds = time.getTime() + 1000;
@@ -87,7 +90,8 @@ function Clock({ data }) {
       {/* <div>{time.substr(time.indexOf("T") + 1, 8)}</div> */}
       {time != null ? (
         <span className={styles.clock}>
-          {time?.getHours()}:{time?.getMinutes()}:{time?.getSeconds()}
+          {time.substr(time.indexOf("T") + 1, 8)}
+          {/* {time?.getHours()}:{time?.getMinutes()}:{time?.getSeconds()} */}
         </span>
       ) : (
         <span className={styles.clock}>00:00:00</span>
